@@ -2,17 +2,18 @@
 \usepackage[scale=0.75]{geometry}
 \usepackage{shortvrb}
 \MakeShortVerb{\|}
-\newcommand{\PkgVersion}{0.3}
+\newcommand{\PkgVersion}{1.0}
+\newcommand{\PkgDate}{2017/05/21}
 \newcommand{\Pkg}[1]{\textsf{#1}}
 \newcommand{\Meta}[1]{$\langle$\textit{#1}$\rangle$}
 \newcommand{\Note}{\par\noindent \textbf{NB:}\quad}
 \newcommand{\Means}{~:\quad}
-\newcommand{\eTeX}{$\varepsilon$-{\TeX}}
+\providecommand{\eTeX}{$\varepsilon$-{\TeX}}
 %-----------------------------------------------------------
 \begin{document}
-\title{\Pkg{bxcalcux} Package (v\PkgVersion)}
-\author{Takayuki YATO (aka.~``ZR'')}
-\date{2013/05/05}
+\title{The \Pkg{bxcalcux} package}
+\author{Takayuki YATO\quad (aka.~``ZR'')}
+\date{v\PkgVersion \quad[\PkgDate]}
 \maketitle
 
 %===========================================================
@@ -27,15 +28,14 @@ For example,
 \setlength{\lengthA}{10thou}
 \end{verbatim}\end{quote}
 will assign 0.72266\,pt to |\lengthA|.%
-\footnote{Note that using \texttt{0.001in} instead of
+\footnote{Using \texttt{0.001in} instead of
 \texttt{0.07227pt} will give rather inaccurate results,
 since \texttt{0.001in} is evaluated to 0.7277\,pt.}
 
 \paragraph{Supported format} \LaTeX.
-\paragraph{Supported engine} Any engine, but some commands
-(including |\newcalcunit|) requires \eTeX.
-\paragraph{Prerequisite packages} \Pkg{calc} package;
-\Pkg{bxtoolbox} package (from \Pkg{BXbase} bundle).
+\paragraph{Supported engine} Any engine with {\eTeX} extension.
+\paragraph{Prerequisite packages}
+\Pkg{calc}, \Pkg{etoolbox}.
 
 %===========================================================
 \section{Package Loading}
@@ -49,23 +49,22 @@ Use |\usepackage| as usual, with no options.
 \section{Usage}
 
 \begin{itemize}
-\item |\newcalcunit{|\Meta{unit}|}{|\Meta{dimen}|}|\Means
-Declares a new unit \Meta{unit} as equal to \Meta{dimen}.
+\item |\newcalcunit{|\Meta{unit}|}{|\Meta{length}|}|\Means
+Declares a new unit \Meta{unit} as equal to \Meta{length}.
 The unit name must consist only of alphabets.
-You can use relative units such as |0.5em| in \Meta{dimen},
-and such relative units are resolved in
-evaluating \Pkg{calc} expressions.
-This command is only available on {\eTeX}-extended engines.
+You can use relative units such as |0.5em| in \Meta{length},
+and such relative units are resolved
+when \Pkg{calc} expressions are evaluated.
 
 \item |\DeclareCalcUnit{|\Meta{unit}|}{|\Meta{text}|}|\Means
+\textsl{(for {\TeX}nicians)}
 Declares a new unit \Meta{unit} as equal to the unit
-expressed by a token string \Meta{text},
+expressed by a token list \Meta{text},
 which must form a ``unit of dimen'' (in {\TeX} terminology).
 Here is an example.
 \begin{quote}\small\begin{verbatim}
 \DeclareCalcUnit{ls}{\baselineskip}% current line skip
 \end{verbatim}\end{quote}
-This command does \emph{not} require \eTeX.
 
 \end{itemize}
 
