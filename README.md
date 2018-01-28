@@ -52,6 +52,9 @@ See the manual bxcalcux.pdf for detail.
 Revision History
 ----------------
 
+  * Version 1.0a 〈2018/01/28〉
+      - Bug fix.
+
   * Version 1.0  〈2017/05/21〉
       - The first public version as this bundle, which has been seperated
         from the old BXjatool bundle.
