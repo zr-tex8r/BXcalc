@@ -195,7 +195,7 @@
 }
 \def\bxcx@parse@cs#1{
 %\typeout{<cs:\string#1>}
-  \bxcx@cond\ifx#1\bxcx@end\fi{
+  \bxcx@cond{\ifx#1\bxcx@end}\fi{% NB. #1 can be \fi
     \bxcx@parse@fin
   }{%else
     \ifcsdef{bxcx@arity\string#1}{
