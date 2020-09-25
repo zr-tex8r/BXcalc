@@ -36,6 +36,14 @@
 \RequirePackage{etoolbox}[]
 \ifx\numdef\@undefined\endinput\fi
 
+% check kernel version
+\@ifl@t@r\fmtversion{2020/10/01}{%
+  \PackageWarningNoLine\bxcy@pkgname
+   {Functionality of this package is already\MessageBreak
+    provided by LaTeX}%
+  \endinput
+}{}
+
 %% variables
 \newdimen\bxcy@resdim
 
